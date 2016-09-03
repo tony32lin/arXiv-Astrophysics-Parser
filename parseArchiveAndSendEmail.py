@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 
 # Program parses the new astrophysics papers of the day and sends out a summary
 # email to the list defined below (searching for key words in the title/abstract)
@@ -92,7 +92,7 @@ else:
                 
                     for childDATA in childDivMeta:
 
-                        if childDATA.attrib.get("class") == 'list-title':
+                        if childDATA.attrib.get("class") == 'list-title mathjax':
                             for childSpan in childDATA:
                                 if childSpan.attrib.get("class") == 'descriptor' and childSpan.tag == 'span':
                                     thisTitle = childSpan.tail.encode('utf-8')
@@ -308,7 +308,7 @@ if gotchaPapers > 0:
 f3.close()
 
 # This should be in a separate file, but it isn't for now
-listOfEmails = ["Name\@Email.Address"]
+listOfEmails = ["tsen.lin@mail.mcgill.ca","xyxlin@gmail.com"]
 
 if gotchaPapers > 0:
     for email in listOfEmails:
